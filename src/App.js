@@ -9,7 +9,7 @@ import "./App.css";
 function App() {
   return (
     <React.Fragment>
-      <TodoCounter />
+      <TodoCounter completed={5} total={10}/>
       <TodoSearch />
 
       <TodoList>
