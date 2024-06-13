@@ -1,5 +1,5 @@
 function CreateTodoButton() {
-  return <button>X</button>;
+  return <button onClick={() => alert("Task added!")}>X</button>;
 }
 
 export { CreateTodoButton };
