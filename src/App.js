@@ -1,10 +1,9 @@
+import React from "react";
+import { CreateTodoButton } from "./CreateTodoButton";
 import { TodoCounter } from "./TodoCounter";
 import { TodoSearch } from "./TodoSearch";
 import { TodoList } from "./TodoList";
 import { TodoItem } from "./TodoItem";
-import { CreateTodoButton } from "./CreateTodoButton";
-import React from "react";
-import "./App.css";
 
 const taskList = [
   { key: 1, text: "Put gas on the yellow car", completed: false },
@@ -15,7 +14,7 @@ const taskList = [
 
 function App() {
   return (
-    <React.Fragment>
+    <>
       <TodoCounter completed={5} total={10} />
       <TodoSearch />
 
@@ -26,7 +25,7 @@ function App() {
       </TodoList>
 
       <CreateTodoButton />
-    </React.Fragment>
+    </>
   );
 }
 
