@@ -1,5 +1,7 @@
+import "./CreateTodoButton.css";
+
 function CreateTodoButton() {
-  return <button onClick={() => alert("Task added!")}>X</button>;
+  return <button className="CreateTodoButton">X</button>;
 }
 
 export { CreateTodoButton };
