@@ -1,16 +1,18 @@
+import React, { useState } from "react";
 import "./TodoSearch.css";
 
 function TodoSearch() {
+  const [searchValue, setSearchValue] = useState("");
+  console.log("This is the search value: " + searchValue);
+
   return (
     <input
       className="TodoSearch"
       type="text"
       placeholder="Search for a Task..."
+      value={searchValue}
       onChange={(event) => {
-        console.log("You wrote in search component!");
-        console.log(event);
-        console.log(event.target);
-        console.log(event.target.value);
+        setSearchValue(event.target.value);
       }}
     />
   );
