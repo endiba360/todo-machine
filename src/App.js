@@ -16,9 +16,12 @@ function App() {
   const [searchValue, setSearchValue] = useState("");
   console.log("This is the search value: " + searchValue);
 
+  const taskCompleted = taskList.filter(task => !!task.completed).length;
+  const totalTasks = taskList.length;
+
   return (
     <>
-      <TodoCounter completed={5} total={10} />
+      <TodoCounter completed={taskCompleted} total={totalTasks} />
       <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
 
       <TodoList>
