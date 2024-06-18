@@ -14,10 +14,11 @@ const taskList = [
 
 function App() {
   const [searchValue, setSearchValue] = useState("");
-  console.log("This is the search value: " + searchValue);
-
-  const taskCompleted = taskList.filter(task => !!task.completed).length;
+  const taskCompleted = taskList.filter((task) => !!task.completed).length;
   const totalTasks = taskList.length;
+  const searchedTask = taskList.filter((task) => {
+    return task.text.toLowerCase().includes(searchValue.toLocaleLowerCase());
+  });
 
   return (
     <>
@@ -25,7 +26,7 @@ function App() {
       <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
 
       <TodoList>
-        {taskList.map((e) => (
+        {searchedTask.map((e) => (
           <TodoItem key={e.key} text={e.text} completed={e.completed} />
         ))}
       </TodoList>
