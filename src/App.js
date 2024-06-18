@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { CreateTodoButton } from "./CreateTodoButton";
 import { TodoCounter } from "./TodoCounter";
 import { TodoSearch } from "./TodoSearch";
@@ -13,10 +13,13 @@ const taskList = [
 ];
 
 function App() {
+  const [searchValue, setSearchValue] = useState("");
+  console.log("This is the search value: " + searchValue);
+
   return (
     <>
       <TodoCounter completed={5} total={10} />
-      <TodoSearch />
+      <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
 
       <TodoList>
         {taskList.map((e) => (
