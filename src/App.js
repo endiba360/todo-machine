@@ -13,10 +13,12 @@ const taskList = [
 ];
 
 function App() {
+  const [todos, setTodos] = useState(taskList);
   const [searchValue, setSearchValue] = useState("");
-  const taskCompleted = taskList.filter((task) => !!task.completed).length;
-  const totalTasks = taskList.length;
-  const searchedTask = taskList.filter((task) => {
+
+  const taskCompleted = todos.filter((task) => !!task.completed).length;
+  const totalTasks = todos.length;
+  const searchedTask = todos.filter((task) => {
     return task.text.toLowerCase().includes(searchValue.toLocaleLowerCase());
   });
 
