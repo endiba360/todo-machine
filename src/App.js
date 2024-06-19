@@ -22,6 +22,13 @@ function App() {
     return task.text.toLowerCase().includes(searchValue.toLocaleLowerCase());
   });
 
+  const completeTodo = (key) => {
+    const listOfTasks = [...todos];
+    const indexOfTask = listOfTasks.findIndex((e) => e.key == key);
+    if (indexOfTask !== -1) listOfTasks[indexOfTask].completed = true;
+    setTodos(listOfTasks);
+  };
+
   return (
     <>
       <TodoCounter completed={taskCompleted} total={totalTasks} />
@@ -29,7 +36,14 @@ function App() {
 
       <TodoList>
         {searchedTask.map((e) => (
-          <TodoItem key={e.key} text={e.text} completed={e.completed} />
+          <TodoItem
+            key={e.key}
+            text={e.text}
+            completed={e.completed}
+            onComplete={() => {
+              completeTodo(e.key);
+            }}
+          />
         ))}
       </TodoList>
 
