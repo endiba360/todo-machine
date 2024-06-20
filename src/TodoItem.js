@@ -1,6 +1,6 @@
 import "./TodoItem.css";
 
-function TodoItem({ text, completed, onComplete }) {
+function TodoItem({ text, completed, onComplete, onDelete }) {
   return (
     <li className="TodoItem">
       <span
@@ -12,7 +12,9 @@ function TodoItem({ text, completed, onComplete }) {
       <p className={`TodoItem-p ${completed && "TodoItem-p--complete"}`}>
         {text}
       </p>
-      <span className={`Icon Icon-delete`}>X</span>
+      <span className={`Icon Icon-delete`} onClick={onDelete}>
+        X
+      </span>
     </li>
   );
 }

@@ -29,6 +29,11 @@ function App() {
     setTodos(listOfTasks);
   };
 
+  const deleteTodo = (key) => {
+    const listOfTasks = todos.filter((e) => e.key !== key);
+    setTodos(listOfTasks);
+  };
+
   return (
     <>
       <TodoCounter completed={taskCompleted} total={totalTasks} />
@@ -40,9 +45,8 @@ function App() {
             key={e.key}
             text={e.text}
             completed={e.completed}
-            onComplete={() => {
-              completeTodo(e.key);
-            }}
+            onComplete={() => completeTodo(e.key)}
+            onDelete={() => deleteTodo(e.key)}
           />
         ))}
       </TodoList>
