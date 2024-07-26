@@ -1,4 +1,6 @@
 import "./TodoItem.css";
+import { DeleteIcon } from "./DeleteIcon";
+import { CompleteIcon } from "./CompleteIcon";
 
 function TodoItem({ text, completed, onComplete, onDelete }) {
   return (
@@ -7,13 +9,16 @@ function TodoItem({ text, completed, onComplete, onDelete }) {
         className={`Icon Icon-check ${completed && "Icon-check--active"}`}
         onClick={onComplete}
       >
-        V
+        <CompleteIcon
+          className={`check ${completed && "completed"}`}
+          onClick={onComplete}
+        />
       </span>
       <p className={`TodoItem-p ${completed && "TodoItem-p--complete"}`}>
         {text}
       </p>
       <span className={`Icon Icon-delete`} onClick={onDelete}>
-        X
+        <DeleteIcon onClick={onDelete} />
       </span>
     </li>
   );
