@@ -24,9 +24,19 @@ function App() {
 
   const completeTodo = (key) => {
     const listOfTasks = [...todos];
-    const indexOfTask = listOfTasks.findIndex((e) => e.key == key);
+    const indexOfTask = listOfTasks.findIndex((e) => e.key === key);
     if (indexOfTask !== -1) listOfTasks[indexOfTask].completed = true;
     setTodos(listOfTasks);
+  };
+
+  const toggleTodo = (key) => {
+    const updateTodos = todos.map((task) => {
+      if (task.key === key) {
+        return { ...task, completed: !task.completed };
+      }
+      return task;
+    });
+    setTodos(updateTodos);
   };
 
   const deleteTodo = (key) => {
@@ -45,7 +55,7 @@ function App() {
             key={e.key}
             text={e.text}
             completed={e.completed}
-            onComplete={() => completeTodo(e.key)}
+            onComplete={() => toggleTodo(e.key)}
             onDelete={() => deleteTodo(e.key)}
           />
         ))}
